@@ -1,0 +1,8 @@
+{
+  "name": "project03_todo-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/HamzaAhmedSheikh/project03_todo-app.git",
+  "author": "HamzaAhmedSheikh <hamzaahmedsheikh313@gmail.com>",
+  "license": "MIT"
+}
