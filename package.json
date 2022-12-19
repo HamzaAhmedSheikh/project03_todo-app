@@ -1,10 +1,12 @@
 {
   "name": "project03_todo-app",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.9",
+  "main": "app.js",
   "type": "module",
+  "bin": "./app.js",
+  
   "repository": "https://github.com/HamzaAhmedSheikh/project03_todo-app.git",
-  "author": "HamzaAhmedSheikh <hamzaahmedsheikh313@gmail.com>",
+  "author": "HamzaAhmedSheikh",
   "license": "MIT",
   "dependencies": {
     "chalk": "^5.2.0",
@@ -20,5 +22,5 @@
     "@types/gradient-string": "^1.1.2",
     "@types/inquirer": "^9.0.3",
     "@types/node": "^18.11.17"
-  }
+  }  
 }
