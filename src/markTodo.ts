@@ -1,3 +1,4 @@
+import chalk from "chalk";
 import inquirer from "inquirer";
 import { todos } from "../app.js";
 
@@ -15,7 +16,8 @@ async function markTodos() {
         ]);
         const index = todos.findIndex((t) => t.name === markedTodo.todo);
         todos[index].completed = true;
-        console.log(`"${markedTodo.todo}" marked as completed!`);
+        // console.log(`"${markedTodo.todo}" marked as completed! \n`);
+        console.log(`\n ${chalk.hex("#34d6eb").bold(`"${markedTodo.todo}" marked as completed! \n`)}`)
     }
 }
 

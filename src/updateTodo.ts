@@ -1,4 +1,5 @@
 import inquirer from "inquirer";
+import chalk from "chalk";
 import { todos } from "../app.js";
 
 async function updateTodo() {
@@ -21,7 +22,9 @@ async function updateTodo() {
         const index = todos.findIndex((t) => t.name === updatedTodo.todo);
 
         todos[index].name = updatedTodo.name;
-        console.log(`"${updatedTodo.todo}" updated to "${updatedTodo.name}"!`);
+        // console.log(`"${updatedTodo.todo}" updated to "${updatedTodo.name}"! \n`);
+        console.log(`\n ${chalk.hex("#3452eb").bold(`"${updatedTodo.todo}" updated to "${updatedTodo.name}"! \n`)}`);
+        
     }
 }
 

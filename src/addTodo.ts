@@ -13,7 +13,7 @@ async function addTodo() {
     ]);
 
     todos.push({ ...newTodo, completed: false });     
-    console.log(`${chalk.hex("#34eb55").bold(`"${newTodo.name}"`)} ${chalk.hex("#34eb55").bold('added to the list!')} \n`);
+    console.log(`\n ${chalk.hex("#34eb55").bold(`"${newTodo.name}"`)} ${chalk.hex("#34eb55").bold('added to the list!')} \n`);
     
 }
 
