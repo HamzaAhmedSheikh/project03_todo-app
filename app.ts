@@ -65,7 +65,7 @@ async function listTodos() {
   } else {  
     console.log('\n Your todo list:');    
     todos.map((todo, index) => {    
-      console.log(`\n ${chalk.hex("#3434eb").bold(`${index + 1}: ${chalk.hex("#34eb55").bold(`${todo.name}`)}`)} ${chalk.hex('#FFA500').bold(`status: ${todo.completed}`)} \n `);     
+      console.log(`\n ${chalk.hex("#89CFF0").bold(`${index + 1}: ${chalk.hex("#34eb55").bold(`${todo.name}`)}`)} ${chalk.hex('#FFA500').bold(`status: ${todo.completed}`)} \n `);     
     });   
   }
 }
@@ -92,7 +92,7 @@ async function updateTodo() {
 
       todos[index].name = updatedTodo.name;
       // console.log(`"${updatedTodo.todo}" updated to "${updatedTodo.name}"! \n`);
-      console.log(`\n ${chalk.hex("#3452eb").bold(`"${updatedTodo.todo}" updated to "${updatedTodo.name}"! \n`)}`);
+      console.log(`\n ${chalk.hex("#CCCCFF").bold(`"${updatedTodo.todo}" updated to "${updatedTodo.name}"! \n`)}`);
       
   }
 }
