@@ -5,12 +5,6 @@ import chalkAnimation from "chalk-animation";
 import figlet from "figlet";
 import gradient from "gradient-string";
 
-// import addTodo from "./addTodo.js";
-// import listTodos from "./listTodos.js";
-// import updateTodo from "./updateTodo.js";
-// import deleteTodo from "./deleteTodo.js";
-// import markTodos from "./markTodo.js";
-
 export interface Todo {    
     name: string;
     completed: boolean;
@@ -23,7 +17,7 @@ let sleep = () => {
         setTimeout(res, 2000);
     })
 }
-
+ 
 async function welcome() {
     const rainbowTitle = chalkAnimation.rainbow(
         `
@@ -66,17 +60,20 @@ async function addTodo() {
 
 // list all the todos function
 async function listTodos() {
-  console.log('\n Your todo list:');    
-  todos.map((todo, index) => {      
-    console.log(`\n ${chalk.hex("#3434eb").bold(`${index + 1}: ${chalk.hex("#34eb55").bold(`${todo.name}`)}`)} ${chalk.hex('#FFA500').bold(`status: ${todo.completed}`)} \n `);     
-  });   
- 
+  if(todos.length === 0) {
+    console.log(`${chalk.hex("#5D3FD3").bold("your todo list is empty")} \n`);     
+  } else {  
+    console.log('\n Your todo list:');    
+    todos.map((todo, index) => {    
+      console.log(`\n ${chalk.hex("#3434eb").bold(`${index + 1}: ${chalk.hex("#34eb55").bold(`${todo.name}`)}`)} ${chalk.hex('#FFA500').bold(`status: ${todo.completed}`)} \n `);     
+    });   
+  }
 }
 
 // update-to-do function
 async function updateTodo() {
-  if (todos.length === 0) {
-      console.log('No todos to update!');
+  if (todos.length === 0) {    
+     console.log(`${chalk.hex("#5D3FD3").bold("No todos to update!")} \n`);     
   } else {
       const updatedTodo = await inquirer.prompt([
           {
@@ -103,7 +100,7 @@ async function updateTodo() {
 // mark the to-do function
 async function markTodos() {
   if (todos.length === 0) {
-      console.log('No todos to mark!');
+    console.log(`${chalk.hex("#5D3FD3").bold("No todos to mark!")} \n`); 
   } else {
       const markedTodo = await inquirer.prompt([
           {
@@ -165,11 +162,15 @@ async function main() {
          await markTodos()
       } else if (answers.action === 'Update a todo') {
            await updateTodo()
-      }  else if(answers.action === 'Delete a todo') {                
-        console.log(`\n ${chalk.hex("#3434eb").bold(`This is your to-do list please choose one to delete a to-do.`)}`);
-        await listTodos()
-        await deleteTodo()
-        await listTodos()
+      }  else if(answers.action === 'Delete a todo') {      
+        if(todos.length === 0) {
+          console.log(`${chalk.hex("#5D3FD3").bold("your to-do list is empty please add some of your to-dos.")} \n`);    
+        } else {  
+          console.log(`\n ${chalk.hex("#3434eb").bold(`This is your to-do list please choose one to delete a to-do.`)}`);
+            await listTodos()
+            await deleteTodo()
+            await listTodos()
+        }
       } else {
         console.log(`\n Thank you for using our Todo App.`);
         break;
